@@ -24,5 +24,7 @@ private:
 	int fontSize = 60;
 	Font font;
 	Text menu[numberOfItems];
+	Text description;
+	string opis;
 };
 

@@ -1,25 +1,21 @@
 #include "Game.h"
-#include <string>
+
 
 using namespace sf;
 using namespace std;
 
 int main()
 {
-	Sprite backgroundSprite;
-	Texture backgroundTexture;
-	backgroundTexture.loadFromFile("Pictures\\Background.png");
-	backgroundTexture.setSmooth(true);
-	backgroundSprite.setTexture(backgroundTexture);
 
-
-	RenderWindow window(VideoMode(1980, 1280), "Statki");
+	RenderWindow window(VideoMode(1980, 1280), "Statki"); //uwtorzenie okna
 	Menu menu(window.getSize().x, window.getSize().y);
+	Game game(window.getSize().x, window.getSize().y);
+
 
 	while (window.isOpen())
 	{
 	
-		sf::Event event;
+		Event event;
 		while (window.pollEvent(event))
 		{
 			switch (event.type)
@@ -65,8 +61,8 @@ int main()
 		}
 
 		window.clear(Color::Black);
-		menu.draw(window);
-		//window.draw(backgroundSprite);
+		//menu.draw(window);
+		game.draw(window);
 		window.display();
 	}
 

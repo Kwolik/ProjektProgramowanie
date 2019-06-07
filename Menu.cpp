@@ -1,6 +1,5 @@
 #include "Menu.h"
 
-//C:\\Windows\\Fonts\\
 
 Menu::Menu(float width, float height)
 {
@@ -8,6 +7,16 @@ Menu::Menu(float width, float height)
 	{
 		cout << "Nie znaleziono czcionki!";
 	}
+
+	//tekst do wyœwietlenia
+	opis = "Statki c ++";
+
+	description.setFont(font); //ustawienie fontu
+	description.setFillColor(Color::Color(153,153,153,255)); //ustawienie koloru
+	description.setString(opis); //przypisanie tekstu, który ma zostaæ wyœwietlony
+	description.setCharacterSize(1.5*fontSize); //wielkoœæ tekstu
+	description.setPosition(Vector2f(width / 4, height / 4)); //pozycja tekstu
+
 
 	menu[0].setFont(font);
 	menu[0].setFillColor(Color::Red);
@@ -21,22 +30,24 @@ Menu::Menu(float width, float height)
 	menu[1].setCharacterSize(fontSize);
 	menu[1].setPosition(Vector2f(width / 2, height / 2 + fontSize*2));
 
-	selectedItemIndex = 0;
+	selectedItemIndex = 0; //obecnie wybrana opcja w menu
 }
 
 Menu::~Menu()
 {
 }
 
-void Menu::draw(RenderWindow &window)
+void Menu::draw(RenderWindow &window) //rysowanie napisów w menu
 {
+	window.draw(description);
+
 	for (int i = 0; i < numberOfItems; i++)
 	{
 		window.draw(menu[i]);
 	}
 }
 
-void Menu::Up()
+void Menu::Up() //poruszanie siê po menu w góre
 {
 	if (selectedItemIndex - 1 >= 0)
 	{
@@ -46,7 +57,7 @@ void Menu::Up()
 	}
 }
 
-void Menu::Down()
+void Menu::Down() //i w dó³
 {
 	if (selectedItemIndex + 1 < numberOfItems)
 	{

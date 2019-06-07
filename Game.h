@@ -6,11 +6,15 @@ using namespace sf;
 class Game
 {
 public:
-	Game();
+	Game(float width, float height);
 	~Game();
 
+	void draw(RenderWindow &window);
+
 private:
-	/*Sprite backgroundSprite;
-	Texture backgroundTexture;*/
+	Sprite fieldSprite1; //utworzenie obrazka
+	Sprite fieldSprite2;
+	Texture fieldTexture; //uwtorzenie tekstury
+	int fieldSize = 800;
 };
 
