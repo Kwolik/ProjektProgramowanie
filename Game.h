@@ -3,6 +3,8 @@
 
 using namespace sf;
 
+#define textNumber 10
+
 class Game
 {
 public:
@@ -14,6 +16,11 @@ public:
 
 
 private:
+	int fontSize = 60;
+	Font font;
+	Text text1[textNumber][2];
+	Text text2[textNumber][2];
+
 	Sprite fieldSprite1; //utworzenie obrazka
 	Sprite fieldSprite2;
 	Texture fieldTexture; //uwtorzenie tekstury
