@@ -6,8 +6,9 @@ using namespace std;
 
 int main()
 {
+	int okno = 0;
 
-	RenderWindow window(VideoMode(1980, 1280), "Statki"); //uwtorzenie okna
+	RenderWindow window(VideoMode(1920, 1080), "Statki"); //uwtorzenie okna
 	Menu menu(window.getSize().x, window.getSize().y);
 	Game game(window.getSize().x, window.getSize().y);
 
@@ -47,22 +48,29 @@ int main()
 					{
 					case 0:
 						cout << "Graj!" << endl;
+						okno=1;
 						break;
 					case 1:
 						window.close();
+						okno=0;
 						break;
 					}
 
 				}
 			}
-			break;
+		
 
 		}
 
 		window.clear(Color::Black);
-		//menu.draw(window);
-		game.draw(window);
+
+		if(okno == 0)
+			menu.draw(window);
+									//przechodzenie miedzy scenami (dopracowac jak starczy czas)
+		if(okno == 1)
+			game.draw(window);
 		window.display();
+
 	}
 
 	return 0;
