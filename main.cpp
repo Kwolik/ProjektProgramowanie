@@ -14,7 +14,6 @@ int main()
 
 	while (window.isOpen())
 	{
-	
 		Event event;
 		while (window.pollEvent(event))
 		{
