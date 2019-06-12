@@ -16,7 +16,7 @@ int main()
 	while (window.isOpen())
 	{
 		Event event;
-		if (okno == 0) {
+		if (okno >-1) {
 			while (window.pollEvent(event))
 			{
 				switch (event.type)
