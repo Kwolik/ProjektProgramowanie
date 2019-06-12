@@ -7,7 +7,7 @@ using namespace std;
 int main()
 {
 	int okno = 0;
-
+	jamhm
 	RenderWindow window(VideoMode(1920, 1080), "Statki", Style::Fullscreen); //uwtorzenie okna
 	Menu menu(window.getSize().x, window.getSize().y);
 	Game game(window.getSize().x, window.getSize().y);
